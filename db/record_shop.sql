@@ -11,7 +11,7 @@ id SERIAL4 PRIMARY KEY,
 title VARCHAR(255),
 genre VARCHAR(255),
 quantity INT4,
-retail DECIMAL (9,9),
-wholesale DECIMAL (9,9),
+retail DECIMAL (9,2),
+wholesale DECIMAL (9,2),
 artist_id INT4 REFERENCES artists(id)
 );

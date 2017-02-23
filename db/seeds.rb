@@ -22,6 +22,7 @@ album1 = Album.new({
   'wholesale' => 5.34,
   'artist_id' => artist1.id,
   })
+
 album2 = Album.new({
   'title' => 'Thriller',
   'genre' => 'Pop',
@@ -30,6 +31,7 @@ album2 = Album.new({
   'wholesale' => 5.04,
   'artist_id' => artist2.id,
   })
+
 album3 = Album.new({
   'title' => 'Bad',
   'genre' => 'Pop',
@@ -38,6 +40,7 @@ album3 = Album.new({
   'wholesale' => 4.94,
   'artist_id' => artist2.id,
   })
+
 album4 = Album.new({
   'title' => 'Metallica',
   'genre' => 'Metal',

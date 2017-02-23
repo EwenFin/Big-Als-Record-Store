@@ -2,10 +2,10 @@ require_relative ('../db/sql_runner.rb')
 
 class Album
 
-  attr_reader :id, :artist_id
-  attr_accessor  :title, :genre, :quantity, :retail, :wholesale,
+  attr_reader(:id, :artist_id)
+  attr_accessor(:title, :genre, :quantity, :retail, :wholesale)
 
-  def initialize( options )
+  def initialize(options)
     @id = options['id'].to_i
     @artist_id = options['artist_id'].to_i
     @title = options['title']

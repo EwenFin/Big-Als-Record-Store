@@ -45,6 +45,14 @@ class TestShop < MiniTest::Test
     assert_equal([@album2], @shop1.stock_array)
   end
 
+  def test_sale
+    @shop1.add_to_stock(@album1)
+    @shop1.add_to_stock(@album2)
+    @shop1.sale(@album1)
+    assert_equal(9.99, @shop1.till)
+    assert_equal([@album2], @shop1.stock_array)
+  end
+
 
 
 

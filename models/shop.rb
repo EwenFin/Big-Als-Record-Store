@@ -18,4 +18,10 @@ class Shop
     @stock_array.delete(album)
   end
 
+  def sale(album)
+    price = album.retail
+    @till += price
+    @stock_array.delete(album)
+  end
+
 end

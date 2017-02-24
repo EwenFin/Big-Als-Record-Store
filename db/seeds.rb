@@ -46,7 +46,7 @@ album4 = Album.new({
   'genre' => 'Metal',
   'quantity' => 3,
   'retail' => 6.99,
-  'wholesale' => 4.94,
+  'wholesale' => 4.04,
   'artist_id' => artist3.id,
   })
 

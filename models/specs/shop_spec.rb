@@ -53,6 +53,10 @@ class TestShop < MiniTest::Test
     assert_equal([@album2], @shop1.stock_array)
   end
 
+  def test_individual_gross_profit
+    assert_equal( "46.5%" ,@shop1.individual_gross_profit(@album1))
+  end
+
 
 
 

@@ -24,14 +24,4 @@ class Shop
     # @stock_array.delete(album)
   end
 
-
-  def individual_gross_profit(album)
-    #(GP =) what is this?
-    revenue = album.retail  
-    cost = album.wholesale
-    gp = (revenue - cost) / revenue
-    return "#{(gp * 100).round(1)}"'%'
-  end
-  #possible feature creep, may be more suited to another piece of back office software, but my favourite piece of code so far...
-
 end

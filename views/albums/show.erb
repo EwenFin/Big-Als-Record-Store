@@ -4,7 +4,7 @@
 <p>Number in Stock: <%= @album.quantity %> </p>
 <p>Retail Price: <%= @album.retail %> </p>
 <p>Wholesale Price: <%= @album.wholesale %> </p>
-<p>Gross Profit: <%= %> </p>
+<p>Gross Profit: <%= (((@album.retail.to_f - @album.wholesale.to_f)/ @album.retail.to_f)*100).round(1)%>%</p>
 
 <a href="/albums/<%= @album.id %>/edit">Edit Details</a>
 

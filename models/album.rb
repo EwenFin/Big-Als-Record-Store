@@ -52,4 +52,8 @@ class Album
     albums = SqlRunner.run(sql)
     return Album.new(albums[0])
   end
+
+
+  
+
 end 

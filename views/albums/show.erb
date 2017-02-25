@@ -4,3 +4,9 @@
 <p>Number in Stock: <%= @album.quantity %> </p>
 <p>Retail Price: <%= @album.retail %> </p>
 <p>Wholesale Price: <%= @album.wholesale %> </p>
+<p>Gross Profit: <%= %> </p>
+
+<a href="/albums/<%= @album.id %>/edit">Edit Details</a>
+
+<form method="POST" action="/albums/<%= @album.id %>/delete">
+<input type="submit" value ="De-list"/></form>

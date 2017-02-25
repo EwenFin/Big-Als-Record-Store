@@ -41,17 +41,17 @@ class TestShop < MiniTest::Test
     @shop1.add_to_stock(@album1)
     @shop1.add_to_stock(@album2)
     assert_equal([@album1, @album2], @shop1.stock_array)
-    @shop1.remove_from_stock(@album1)
+    @shop1.remove_all_copies_from_stock(@album1)
     assert_equal([@album2], @shop1.stock_array)
   end
 
-  def test_sale
-    @shop1.add_to_stock(@album1)
-    @shop1.add_to_stock(@album2)
-    @shop1.sale(@album1)
-    assert_equal(9.99, @shop1.till)
-    assert_equal([@album2], @shop1.stock_array)
-  end
+  # def test_sale
+  #   @shop1.add_to_stock(@album1)
+  #   @shop1.add_to_stock(@album2)
+  #   @shop1.sale(@album1)
+  #   assert_equal(9.99, @shop1.till)
+  #   assert_equal([@album2], @shop1.stock_array)
+  # end
 
   def test_individual_gross_profit
     assert_equal( "46.5%" ,@shop1.individual_gross_profit(@album1))

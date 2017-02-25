@@ -15,3 +15,20 @@ get '/albums/:id' do
   @album = Album.find_album_by_id(params[:id])
   erb(:"albums/show")
 end
+
+post '/albums' do
+  @album = Album.new(params)
+  @album.save 
+  redirect to '/albums'
+end
+
+get '/albums/:id/edit' do
+  @album = Album.find_album_by_id(params[:id])
+  erb(:"albums/edit")
+end
+
+post '/albums/:id/delete' do
+  @album = Album.find_album_by_id(params[:id])
+  @album.delete
+  redirect to '/albums'
+end

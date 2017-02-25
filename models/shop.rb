@@ -14,14 +14,14 @@ class Shop
     @stock_array << album
   end
 
-  def remove_from_stock(album)
+  def remove_all_copies_from_stock(album)
     @stock_array.delete(album)
   end
 
   def sale(album)
     price = album.retail
     @till += price
-    @stock_array.delete(album)
+    # @stock_array.delete(album)
   end
 
 

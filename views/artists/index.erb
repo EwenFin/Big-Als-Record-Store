@@ -1,0 +1,8 @@
+<% @artist.each do |artist| %>
+<h3><%= artist.name%></h3>
+
+
+<p><a href="/artists/<% artist.id %>">Albums in Stock
+</a></p>
+
+<% end %>

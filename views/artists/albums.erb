@@ -1,0 +1,14 @@
+<h1><%= @artist.name %></h1>
+
+<% for album in @albums %>
+<% if album.artist_id == @artist.id %>
+<h3><%= album.title %></h3>
+<p>Genre: <%= album.genre %></p>
+<p>In Stock: <%= album.quantity %></p>
+<p>Retail Price: £<%= album.retail %></p>
+<p>Wholesale Cost: £<%= album.wholesale %></p>
+<hr>
+<% end %>
+<% end %>
+
+

@@ -5,7 +5,7 @@ require_relative( '../models/album.rb')
 
 get '/artists' do
   @artist = Artist.all
-  erb ( :"artists/index")
+  erb (:"artists/index")
 end
 
 get '/artists/new' do
@@ -21,4 +21,10 @@ post '/artists' do
   @artist = Artist.new(params)
   @artist.save
   redirect to '/artists'
+end
+
+get '/artists/:id/albums' do
+  @artist = Artist.find_artist_by_id(params[:id])
+  @albums = Album.all
+  erb (:"artists/albums")
 end

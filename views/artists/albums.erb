@@ -1,4 +1,4 @@
-<h1><%= @artist.name %></h1>
+<div class = "center"><h1><%= @artist.name %></h1>
 
 <% for album in @albums %>
 <% if album.artist_id == @artist.id %>
@@ -10,5 +10,5 @@
 <hr>
 <% end %>
 <% end %>
-
+</div>
 

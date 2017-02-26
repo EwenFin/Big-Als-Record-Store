@@ -1,10 +1,9 @@
-<% @albums.each do |album| %>
+<div class ="center"><% @albums.each do |album| %>
 <h4><%= album.title%></h4>
 <p><%= album.artist.name%></p>
 
 
 <p><a href="/albums/<%= album.id %>">Details</a></p>
-
-
-<hr/>
+<hr>
 <% end %>
+</div>

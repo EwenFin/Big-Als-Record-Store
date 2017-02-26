@@ -1,3 +1,4 @@
+<div class = "center">
 <p>Artist: <%= @album.artist.name %></p>
 <p>Title: <%= @album.title %> </p>
 <p>Genre: <%= @album.genre %> </p>
@@ -10,3 +11,4 @@
 
 <form method="POST" action="/albums/<%= @album.id %>/delete">
 <input type="submit" value ="De-list"/></form>
+</div>

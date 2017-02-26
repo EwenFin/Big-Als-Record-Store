@@ -1,0 +1,55 @@
+body {
+  background: black url('/images/record_player.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position:  center;
+}
+
+
+h1, h2, h3, h4 {
+  font-family: "Comic Sans MS";
+  color: white;
+}
+
+h5, h6 {
+  font-family: "Comic Sans MS"; sans serif;
+  /*please forgive my use of comic sans*/
+  color: white;
+}
+
+p{
+  font-family: "Comic Sans MS"; sans serif;
+  color: white;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    margin:0 auto;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: black;
+}
+
+.center {
+  text-align: center;  
+}
+

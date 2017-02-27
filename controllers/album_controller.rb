@@ -43,7 +43,7 @@ post '/albums/:id' do
   redirect to "/albums/#{album.id}"
 end
 
-post '/albums/:album_id/delete' do
+post '/albums/:id/delete' do
   @album = Album.find_album_by_id(params[:id])
   @album.delete
   redirect to '/albums'

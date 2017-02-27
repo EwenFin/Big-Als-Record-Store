@@ -3,10 +3,11 @@
 <% for album in @albums %>
 <% if album.artist_id == @artist.id %>
 <h3><%= album.title %></h3>
-<p>Genre: <%= album.genre %></p>
+<p>Genre: <%= album.genre.genre %></p>
 <p>In Stock: <%= album.quantity %></p>
 <p>Retail Price: £<%= album.retail %></p>
 <p>Wholesale Cost: £<%= album.wholesale %></p>
+<p>Gross Profit: <%= (((album.retail.to_f - album.wholesale.to_f)/ album.retail.to_f)*100).round(1)%>%</p>
 <hr>
 <% end %>
 <% end %>

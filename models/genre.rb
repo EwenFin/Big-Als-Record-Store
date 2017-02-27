@@ -35,9 +35,14 @@ class Genre
     SqlRunner.run(sql)
   end
 
-  def find_album_by_genre(genre_id)
-    sql ="SELECT * FROM albums WHERE id = #{genre_id}"
-    albums = SqlRunner.run(sql)
-    return albums.map{|album| Album.new(album)}
+  def self.find_genre_by_id(genre_id)
+    sql ="SELECT * FROM genres WHERE id = #{genre_id}"
+    genres = SqlRunner.run(sql)
+    return Genre.new(genres[0])
+  end
+
+  def delete
+    sql = "DELETE FROM genres WHERE id ={@id}"
+    SqlRunner.run(sql)
   end
 end

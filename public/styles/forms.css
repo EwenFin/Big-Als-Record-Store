@@ -1,0 +1,38 @@
+select {
+ display: inline-block;
+ width: 150px;
+ padding: 5px 105px 15px 5px;
+ font-size: 1.25em;
+ font-family: "Comic Sans";
+ border: 1px solid white;
+ margin: 0 auto;
+
+} 
+
+input[type="text"] {
+  font-family:'Comic Sans';
+  font-size: 1.25em;
+}
+
+input[type="number"] {
+  font-size:1.25em;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+label, input{
+  display: inline-block;
+}
+
+label {
+  width: 30%;
+  color: beige;
+}
+
+label + input {
+  width: 30%;
+  margin: 0 30%;
+}

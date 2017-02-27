@@ -9,18 +9,18 @@ body {
 
 h1, h2, h3, h4 {
   font-family: "Comic Sans MS";
-  color: white;
+  color: beige;
 }
 
 h5, h6 {
   font-family: "Comic Sans MS"; sans serif;
   /*please forgive my use of comic sans*/
-  color: white;
+  color: beige;
 }
 
 p{
   font-family: "Comic Sans MS"; sans serif;
-  color: white;
+  color: beige;
 }
 
 
@@ -29,7 +29,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+  
 }
 
 li {

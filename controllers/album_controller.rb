@@ -15,9 +15,10 @@ get '/albums/new' do
   erb(:"albums/new")
 end
 
-get '/albums/genre' do
+get '/albums/genres' do
   @albums = Album.all
-  erb(:"albums/genre")
+  @genres = Genre.all
+  erb(:"albums/genres")
 end
 
 get '/albums/:id' do

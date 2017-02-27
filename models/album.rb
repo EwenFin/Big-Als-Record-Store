@@ -2,22 +2,22 @@ require_relative ('../db/sql_runner.rb')
 
 class Album
 
-  attr_reader(:id, :artist_id)
-  attr_accessor(:title, :genre, :quantity, :retail, :wholesale)
+  attr_reader(:id, :artist_id, :genre_id)
+  attr_accessor(:title, :quantity, :retail, :wholesale)
 
   def initialize(options)
-    @id = options['id'].to_i
+    @id = options['album_id'].to_i
     @artist_id = options['artist_id'].to_i
     @title = options['title']
-    @genre = options['genre']
+    @genre_id = options['genre_id']
     @quantity = options['quantity'].to_i
     @retail = options['retail']
     @wholesale = options['wholesale']
   end
 
   def save
-    sql = "INSERT INTO albums (artist_id, title, genre, quantity, retail, wholesale) VALUES (#{@artist_id}, '#{@title}', '#{@genre}',#{@quantity}, '#{@retail}','#{@wholesale}' ) RETURNING *"
-    @id = SqlRunner.run(sql)[0]['id'].to_i
+    sql = "INSERT INTO albums (artist_id, title, genre_id, quantity, retail, wholesale) VALUES (#{@artist_id}, '#{@title}', '#{@genre_id}',#{@quantity}, '#{@retail}','#{@wholesale}' ) RETURNING *"
+    @id = SqlRunner.run(sql)[0]['album_id'].to_i
   end
 
   def self.delete_all
@@ -38,22 +38,24 @@ class Album
   end
 
   def update
-    sql = "UPDATE albums SET (title, genre, quantity, retail, wholesale) = ('#{@title}', '#{genre}', #{@quantity}, '#{@retail}','#{@wholesale}') WHERE id = #{@id};"
+    sql = "UPDATE albums SET (title, genre_id, quantity, retail, wholesale) = ('#{@title}', '#{genre_id}', #{@quantity}, '#{@retail}','#{@wholesale}') WHERE album_id = #{@id};"
     SqlRunner.run(sql)
   end
 
   def delete
-    sql = "DELETE FROM albums WHERE id = #{@id}"
+    sql = "DELETE FROM albums WHERE album_id = #{@id}"
     SqlRunner.run(sql)
   end
 
   def self.find_album_by_id(search_id)
-    sql = "SELECT * FROM albums WHERE id = #{search_id}"
+    sql = "SELECT * FROM albums WHERE album_id = #{search_id}"
     albums = SqlRunner.run(sql)
     return Album.new(albums[0])
   end
 
-
-  
-
+  def genre
+    sql = "SELECT * FROM genres INNER JOIN albums ON genre_id = genres.id WHERE album_id = #{@id}"
+    genres = SqlRunner.run(sql)
+    return Genre.new(genres[0])
+  end
 end 

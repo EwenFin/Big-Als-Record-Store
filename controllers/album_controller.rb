@@ -13,6 +13,11 @@ get '/albums/new' do
   erb(:"albums/new")
 end
 
+get '/albums/genre' do
+  @albums = Album.all
+  erb(:"albums/genre")
+end
+
 get '/albums/:id' do
   @album = Album.find_album_by_id(params[:id])
   erb(:"albums/show")

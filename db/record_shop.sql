@@ -1,17 +1,23 @@
 DROP TABLE IF EXISTS albums;
 DROP TABLE IF EXISTS artists;
+DROP TABLE IF EXISTS genres;
 
 CREATE TABLE artists (
 id SERIAL4 PRIMARY KEY,
 name VARCHAR(255)
 );
 
-CREATE TABLE albums (
+CREATE TABLE genres (
 id SERIAL4 PRIMARY KEY,
+genre VARCHAR(255)
+ );
+
+CREATE TABLE albums (
+album_id SERIAL4 PRIMARY KEY,
 title VARCHAR(255),
-genre VARCHAR(255),
+genre_id INT4 REFERENCES genres(id) ON DELETE CASCADE, --VARCHAR(255),
 quantity INT4,
 retail DECIMAL (9,2),
 wholesale DECIMAL (9,2),
-artist_id INT4 REFERENCES artists(id)
+artist_id INT4 REFERENCES artists(id) ON DELETE CASCADE
 );

@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/album.rb' )
 require_relative( '../models/artist.rb')
+require_relative( '../models/genre.rb')
 
 get '/albums' do
   @albums = Album.all
@@ -10,6 +11,7 @@ end
 
 get '/albums/new' do
   @artists = Artist.all
+  @genres = Genre.all
   erb(:"albums/new")
 end
 
@@ -41,7 +43,7 @@ post '/albums/:id' do
   redirect to "/albums/#{album.id}"
 end
 
-post '/albums/:id/delete' do
+post '/albums/:album_id/delete' do
   @album = Album.find_album_by_id(params[:id])
   @album.delete
   redirect to '/albums'

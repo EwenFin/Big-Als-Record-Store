@@ -6,18 +6,18 @@ class Album
   attr_accessor(:title, :quantity, :retail, :wholesale)
 
   def initialize(options)
-    @id = options['album_id'].to_i
+    @id = options['id'].to_i
     @artist_id = options['artist_id'].to_i
     @title = options['title']
-    @genre_id = options['genre_id']
+    @genre_id = options['genre_id'].to_i
     @quantity = options['quantity'].to_i
     @retail = options['retail']
     @wholesale = options['wholesale']
   end
 
   def save
-    sql = "INSERT INTO albums (artist_id, title, genre_id, quantity, retail, wholesale) VALUES (#{@artist_id}, '#{@title}', '#{@genre_id}',#{@quantity}, '#{@retail}','#{@wholesale}' ) RETURNING *"
-    @id = SqlRunner.run(sql)[0]['album_id'].to_i
+    sql = "INSERT INTO albums (artist_id, title, genre_id, quantity, retail, wholesale) VALUES (#{@artist_id}, '#{@title}', #{@genre_id},#{@quantity}, '#{@retail}','#{@wholesale}' ) RETURNING *"
+    @id = SqlRunner.run(sql)[0]['id'].to_i
   end
 
   def self.delete_all
@@ -43,18 +43,18 @@ class Album
   end
 
   def delete
-    sql = "DELETE FROM albums WHERE album_id = #{@id}"
+    sql = "DELETE FROM albums WHERE id = #{@id}"
     SqlRunner.run(sql)
   end
 
   def self.find_album_by_id(search_id)
-    sql = "SELECT * FROM albums WHERE album_id = #{search_id}"
+    sql = "SELECT * FROM albums WHERE id = #{search_id}"
     albums = SqlRunner.run(sql)
     return Album.new(albums[0])
   end
 
   def genre
-    sql = "SELECT * FROM genres INNER JOIN albums ON genre_id = genres.id WHERE album_id = #{@id}"
+    sql = "SELECT * FROM genres INNER JOIN albums ON albums.genre_id = genres.id WHERE albums.id = #{@id}"
     genres = SqlRunner.run(sql)
     return Genre.new(genres[0])
   end

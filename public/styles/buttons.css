@@ -1,0 +1,10 @@
+.btn {
+  display: inline-block;
+  justify-content: center;
+  border: 3px black;
+  padding: 10px 10px;
+  color: beige;
+  font-family: "Comic Sans";
+  font-size: 16px;
+  margin: 16px auto;
+}

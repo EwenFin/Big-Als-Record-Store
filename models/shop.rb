@@ -4,7 +4,6 @@ require_relative ('../models/album.rb')
 class Shop
   attr_reader :till
   
-  
   def initialize(till)
     #Are these accessors redundant?  
     @till = 0

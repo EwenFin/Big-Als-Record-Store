@@ -1,13 +1,15 @@
 <div class = "center">
 <h1>Genre: <%= @genre.genre %></h1>
 
+<% total = 0 %>
 <% for album in @albums %>
 <% if album.genre_id == @genre.id %>
 <h3><%= album.title %></h3>
 <p><%= album.artist.name %></p>
-
+<% total += album.quantity %>
 <% end %>
 <% end %>
+<h3>Total Albums:<%= total %></h3>
 
 <form method="POST" action="/genres/<%= @genre.id%>/delete">
 <input class="btn" type="submit" value="De-list Genre"/></form></div>

@@ -4,14 +4,23 @@
 <% if album.artist_id == @artist.id %>
 <h3><%= album.title %></h3>
 <p>Genre: <%= album.genre.genre %></p>
-<p>In Stock: <%= album.quantity %></p>
+<p>In Stock: <% if album.quantity <= 2 %>
+<div class = "red"><%= album.quantity %></div>
+<% elsif album.quantity <= 5 %>
+<div class = "orange"><%= album.quantity %></div>
+<% elsif album.quantity >= 6 %>
+<div class = "green"><%= album.quantity %></div>
+</p>
+<% end %>
+
 <p>Retail Price: £<%= album.retail %></p>
 <p>Wholesale Cost: £<%= album.wholesale %></p>
 <p>Gross Profit: <%= (((album.retail.to_f - album.wholesale.to_f)/ album.retail.to_f)*100).round(1)%>%</p>
+
+<a href="/albums/<%= album.id %>/edit">Edit Details</a>
 <hr>
 <% end %>
 <% end %>
 
 
 </div>
-

@@ -2,22 +2,22 @@
 
  <form method="POST" action="/albums">
 
- <label> 
-   <select name="artist_id">
+ <label for="artist">Artist:</label>
+   <select name="artist_id" id="artist">
      <% for artist in @artists %>
      <option value ="<%= artist.id %>"><%= artist.name %></option>
      <% end %>
    </select>
- </label>
 
- <label>
-  <select name="genre_id">
+
+ <label for="genre">Genre:</label>
+  <select id="genre" name="genre_id">
     <% for genre in @genres %> 
      <option value ="<%=genre.id %>"><%= genre.genre %>
       </option>
     <%end %>
   </select>
-  </label>
+
  
 
  <label for="title">Title:</label>

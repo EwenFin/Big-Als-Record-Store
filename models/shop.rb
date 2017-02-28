@@ -1,27 +1,24 @@
 require_relative ('../db/sql_runner.rb')
+require_relative ('../models/album.rb')
 
 class Shop
   attr_reader :till
-  attr_accessor :stock_array
   
-  def initialize(till, stock_array)
+  
+  def initialize(till)
     #Are these accessors redundant?  
     @till = 0
-    @stock_array = []
   end
 
-  def add_to_stock(album)
-    @stock_array << album
-  end
-
-  def remove_all_copies_from_stock(album)
-    @stock_array.delete(album)
-  end
-
-  def sale(album)
+  def sale(album_id)
     price = album.retail
     @till += price
-    # @stock_array.delete(album)
+    sql1 = "SELECT * FROM albums WHERE id = #{album_id}"
+    albums = SqlRunner.run(sql1)
+    album = Album.new(albums[0])
+    album.quantity -= 1
+    sql2 = "UPDATE albums SET (title, artist_id, genre_id, quantity, retail, wholesale) = ('#{album.title}', #{album.artist_id}, #{album.genre_id}, #{album.quantity}, '#{album.retail}','#{album.wholesale}') WHERE id = #{album_id};" 
+    SqlRunner.run(sql2)
   end
 
 end

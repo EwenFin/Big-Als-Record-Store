@@ -12,7 +12,7 @@
   <label for="artist">Artist:</label>
     <select name="artist_id">
       <% for artist in @artists %>
-      <option value ="<%= artist.id %>" selected= "<%= @album.artist_id %>"><%= artist.name %></option>
+      <option value ="<%= artist.id %>" selected= "<%= @album.artist_id %>"><%= @album.artist.name %></option>
       <% end %>
     </select>
   
@@ -20,7 +20,7 @@
   <label for="genre_id">Genre:</label>
    <select name="genre_id">
      <% for genre in @genres %> 
-      <option value ="<%=genre.id %>" selected="<%= @album.genre_id %>"><%= genre.genre %>
+      <option value ="<%=genre.id %>" selected="<%= @album.genre_id %>"><%= @album.genre.genre %>
        </option>
      <%end %>
    </select>

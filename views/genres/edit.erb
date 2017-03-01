@@ -1,0 +1,14 @@
+<div class = "center"><h1>Edit Genre</h1>
+
+<form method="POST" action="/genres/<%= @genre.id %>">
+  <label for="genre">Genre:</label>
+  <input
+  type="text"
+  id="genre"
+  name="genre"
+  value="<%= @genre.genre %>"
+  />
+  </form>
+  </div>
+
+  

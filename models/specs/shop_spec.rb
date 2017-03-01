@@ -28,6 +28,6 @@ class TestShop < MiniTest::Test
       'artist_id' => @artist2.id,
       })
 
-    @shop1 = Shop.new(0,[])
+    @shop1 = Shop.new(0)
   end  
 end

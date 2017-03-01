@@ -11,5 +11,7 @@
 <% end %>
 <h3>Total Albums:<%= total %></h3>
 
+<p><a href="/genres/<%= @genre.id %>/edit">Edit Genre</a>
+
 <form method="POST" action="/genres/<%= @genre.id%>/delete">
 <input class="btn" type="submit" value="De-list Genre"/></form></div>

@@ -1,0 +1,12 @@
+<div class = "center"><h1>Update Artist Details</h1>
+
+<form method="POST" action="/artists/<%= @artist.id %>">
+  <label for="name">Name:</label>
+  <input
+  type="text"
+  id="name"
+  name="name"
+  value="<%= @artist.name %>"
+  />
+  </form>
+  </div>

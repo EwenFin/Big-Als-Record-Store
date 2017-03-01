@@ -1,0 +1,8 @@
+<div class = "center">
+<h3> <%=@artist.name %></h3>
+
+<a href="/artists/<%= @artist.id %>/edit">Edit Artist Details</a>
+
+<form method="POST" action="/artists/<%= @artist.id %>/delete">
+<input class= "btn" type="submit" value ="Remove Artist"/></form>
+</div>

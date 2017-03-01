@@ -1,7 +1,7 @@
 <div class = "center"><% @artist.each do |artist| %>
 <h3><%= artist.name%></h3>
 
-
+<p><a href="/artists/<%= artist.id %>">Artist Details</a></p>
 <p><a href="/artists/<%= artist.id %>/albums">Albums in Stock
 </a></p>
 

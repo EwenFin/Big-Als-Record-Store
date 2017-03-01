@@ -23,8 +23,26 @@ post '/artists' do
   redirect to '/artists'
 end
 
+get '/artists/:id/edit' do
+  @artist = Artist.find_artist_by_id(params[:id])
+  erb(:"artists/edit")
+end
+
 get '/artists/:id/albums' do
   @artist = Artist.find_artist_by_id(params[:id])
   @albums = Album.all
   erb (:"artists/albums")
 end
+
+post '/artists/:id' do 
+  artist = Artist.new(params)
+  artist.update
+  redirect to "/artists/#{artist.id}"
+end
+#Why do artists need an update method?  Ask Prince again
+
+post '/artists/:id/delete' do
+  @artist = Artist.find_artist_by_id(params[:id])
+  @artist.delete
+  redirect to '/artists'
+  end

@@ -21,6 +21,11 @@ get '/albums/genres' do
   erb(:"albums/genres")
 end
 
+get '/albums/delivery' do
+  @albums = Album.all
+  erb(:"albums/delivery")
+end
+
 get '/albums/:id' do
   @album = Album.find_album_by_id(params[:id])
   erb(:"albums/show")
@@ -51,3 +56,7 @@ post '/albums/:id/delete' do
   @album.delete
   redirect to '/albums'
 end
+
+
+
+

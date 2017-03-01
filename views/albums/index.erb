@@ -1,6 +1,14 @@
 <div class ="center"><% @albums.each do |album| %>
 <h4><%= album.title%></h4>
 <p><%= album.artist.name%></p>
+<p>In Stock:<% if album.quantity <= 2 %>
+<div class = "red"><%= album.quantity %></div>
+<% elsif album.quantity <= 5 %>
+<div class = "orange"><%= album.quantity %></div>
+<% elsif album.quantity >= 6 %>
+<div class = "green"><%= album.quantity %></div>
+ </p>
+ <% end %>
 
 
 <p><a href="/albums/<%= album.id %>">Details</a></p>
